@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PipelineRunner from './PipelineRunner';
 
+const BASE = import.meta.env.BASE_URL;
+
 const PIPELINE_PHASES = [
   { label: '启动服务', duration: 1500 },
   { label: '加载页面', duration: 1800 },
@@ -40,14 +42,14 @@ const PIPELINE_LOGS = [
 ];
 
 const journeySteps = [
-  { step: 1, title: '浏览首页', desc: '余额¥126.50、已用流量12.5GB', type: 'page_enter', icon: '🏠', img: '/demo/screenshots/01_home.png' },
-  { step: 2, title: '搜索资费', desc: '输入"移动产品资费"', type: 'search', icon: '🔍', img: '/demo/screenshots/02_search_page.png' },
-  { step: 3, title: '查看结果', desc: '资费大全/5G套餐/优惠', type: 'result', icon: '📋', img: '/demo/screenshots/04_search_results.png' },
-  { step: 4, title: '产品中心', desc: '浏览全部套餐资费', type: 'page_view', icon: '📦', img: '/demo/screenshots/05_products_list.png' },
-  { step: 5, title: '套餐详情', desc: '30GB/500min/¥128', type: 'page_view', icon: '📱', img: '/demo/screenshots/06_product_detail.png' },
-  { step: 6, title: '立即办理', desc: '订单提交成功 ✅', type: 'conversion', icon: '🛒', img: '/demo/screenshots/07_order_submitted.png' },
-  { step: 7, title: '个人中心', desc: '12月在网/会员/2860积分', type: 'page_view', icon: '👤', img: '/demo/screenshots/08_my_account.png' },
-  { step: 8, title: '客服咨询', desc: '智能客服回复资费问题', type: 'interaction', icon: '💬', img: '/demo/screenshots/09_support_page.png' },
+  { step: 1, title: '浏览首页', desc: '余额¥126.50、已用流量12.5GB', type: 'page_enter', icon: '🏠', img: `${BASE}demo/screenshots/01_home.png` },
+  { step: 2, title: '搜索资费', desc: '输入"移动产品资费"', type: 'search', icon: '🔍', img: `${BASE}demo/screenshots/02_search_page.png` },
+  { step: 3, title: '查看结果', desc: '资费大全/5G套餐/优惠', type: 'result', icon: '📋', img: `${BASE}demo/screenshots/04_search_results.png` },
+  { step: 4, title: '产品中心', desc: '浏览全部套餐资费', type: 'page_view', icon: '📦', img: `${BASE}demo/screenshots/05_products_list.png` },
+  { step: 5, title: '套餐详情', desc: '30GB/500min/¥128', type: 'page_view', icon: '📱', img: `${BASE}demo/screenshots/06_product_detail.png` },
+  { step: 6, title: '立即办理', desc: '订单提交成功 ✅', type: 'conversion', icon: '🛒', img: `${BASE}demo/screenshots/07_order_submitted.png` },
+  { step: 7, title: '个人中心', desc: '12月在网/会员/2860积分', type: 'page_view', icon: '👤', img: `${BASE}demo/screenshots/08_my_account.png` },
+  { step: 8, title: '客服咨询', desc: '智能客服回复资费问题', type: 'interaction', icon: '💬', img: `${BASE}demo/screenshots/09_support_page.png` },
 ];
 
 const interactionLog = [
@@ -194,7 +196,7 @@ export default function Feature2Cards() {
                     ))}
                   </div>
                 </div>
-                <a href="/demo/interaction_log.jsonl" download className="block mt-3 text-center text-xs font-mono text-moss-accent/60 hover:text-moss-accent border border-moss-accent/15 hover:border-moss-accent/30 rounded-lg py-1.5 transition-all duration-300 font-semibold">↓ 下载日志 (JSONL)</a>
+                <a href={`${BASE}demo/interaction_log.jsonl`} download className="block mt-3 text-center text-xs font-mono text-moss-accent/60 hover:text-moss-accent border border-moss-accent/15 hover:border-moss-accent/30 rounded-lg py-1.5 transition-all duration-300 font-semibold">↓ 下载日志 (JSONL)</a>
               </div>
             </div>
 

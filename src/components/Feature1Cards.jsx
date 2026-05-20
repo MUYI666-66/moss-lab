@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PipelineRunner from './PipelineRunner';
 
+const BASE = import.meta.env.BASE_URL;
+
 // ── Pipeline configuration ──
 const PIPELINE_PHASES = [
   { label: '初始化模板', duration: 1800 },
@@ -272,7 +274,7 @@ export default function Feature1Cards() {
                     <option value="男">男</option><option value="女">女</option>
                   </select>
                 </div>
-                <a href="/demo/synthetic_users.csv" download
+                <a href={`${BASE}demo/synthetic_users.csv`} download
                   className="text-xs font-mono text-moss-accent/70 hover:text-moss-accent border border-moss-accent/20 hover:border-moss-accent/40 rounded-lg px-3 py-1.5 transition-all duration-300 font-semibold">
                   ↓ CSV 下载
                 </a>

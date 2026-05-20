@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PipelineRunner from './PipelineRunner';
 
+const BASE = import.meta.env.BASE_URL;
+
 const PIPELINE_PHASES = [
   { label: '加载数据', duration: 1500 },
   { label: '生成地图', duration: 2500 },
@@ -45,10 +47,10 @@ const PIPELINE_LOGS = [
 ];
 
 const charts = [
-  { id: 'journey', title: '旅程全景地图', desc: '7阶段 × 4触点气泡图，颜色+大小标识满意度与流量', img: '/demo/charts/journey_map_overview.png' },
-  { id: 'funnel', title: '转化漏斗分析', desc: '1000人→140人全链路漏斗，标注各阶段流失率', img: '/demo/charts/funnel_analysis.png' },
-  { id: 'pain', title: '薄弱环节分析', desc: '流失率柱状图+痛点矩阵+满意度趋势+优先级排序', img: '/demo/charts/pain_point_analysis.png' },
-  { id: 'churn', title: '流失预测仪表盘', desc: '5级风险构成饼图+未来2月流失趋势预测', img: '/demo/charts/churn_prediction.png' },
+  { id: 'journey', title: '旅程全景地图', desc: '7阶段 × 4触点气泡图，颜色+大小标识满意度与流量', img: `${BASE}demo/charts/journey_map_overview.png` },
+  { id: 'funnel', title: '转化漏斗分析', desc: '1000人→140人全链路漏斗，标注各阶段流失率', img: `${BASE}demo/charts/funnel_analysis.png` },
+  { id: 'pain', title: '薄弱环节分析', desc: '流失率柱状图+痛点矩阵+满意度趋势+优先级排序', img: `${BASE}demo/charts/pain_point_analysis.png` },
+  { id: 'churn', title: '流失预测仪表盘', desc: '5级风险构成饼图+未来2月流失趋势预测', img: `${BASE}demo/charts/churn_prediction.png` },
 ];
 
 const painPoints = [
