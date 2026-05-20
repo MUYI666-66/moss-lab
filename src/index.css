@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'DM Serif Display', 'Noto Serif SC', serif;
+  --font-body: 'Noto Sans SC', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #080A08;
+  font-family: var(--font-body);
+  color: #F2F2E8;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar — moss accent */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #080A08; }
+::-webkit-scrollbar-thumb { background: #1a2a1a; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #7FA36B; }
+
+canvas { display: block; }
+
+/* Custom selection */
+::selection {
+  background: rgba(127, 163, 107, 0.3);
+  color: #F2F2E8;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Section dividers */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(127,163,107,0.15), transparent);
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 30px rgba(127, 163, 107, 0.08), 0 0 60px rgba(127, 163, 107, 0.03);
+}
+.glow-accent-strong {
+  box-shadow: 0 0 40px rgba(127, 163, 107, 0.15), 0 0 80px rgba(127, 163, 107, 0.05);
+}
+
+/* Data bar animation */
+@keyframes growBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.bar-grow {
+  transform-origin: left;
+  animation: growBar 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Pulse for live indicators */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.6); }
+}
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Fade up on scroll */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+/* Marquee-like number scroll */
+@keyframes countIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.count-in {
+  animation: countIn 0.6s ease-out forwards;
+}
